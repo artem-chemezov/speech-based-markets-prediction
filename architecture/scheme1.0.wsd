@@ -1,0 +1,25 @@
+@startuml
+participant Пользователь as f
+participant "Expert-video-searcher" as b
+participant "Expert-ML-server" as m
+' participant
+
+activate a
+f --> b: Анализ видео по запросу в YouTube
+b --> f: Возврат найденных видео
+f --> b: Выбор видео или добавление своего
+b --> m: Загрузка
+note over m: Конвертация
+note over m: Поиск лиц
+m --> b: Возврат всех лиц
+b --> f: Возврат всех лиц
+f --> b: Выбор лиц и модулей для анализа
+note over b: Созранение в базу
+b --> m: Отправка выбранных лиц
+note over m: Анализ видео
+m --> b: Отправка результатов
+note over b: Созранение в базу
+b --> f: Отправка результатов
+note over f: Формирование отчета
+deactivate a
+@enduml
