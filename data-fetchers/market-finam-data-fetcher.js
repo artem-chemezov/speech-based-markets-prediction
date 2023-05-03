@@ -23,6 +23,7 @@ const params = {
 };
 
 
+
 axios.get('https://export.finam.ru/export9.out', { params })
   .then(response => {
     console.log(response.data);
